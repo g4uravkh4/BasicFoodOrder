@@ -2,7 +2,7 @@
 <app-tags></app-tags>
 <ul>
   <li *ngFor="let food of foods">
-    <a>
+    <a routerLink="/food/{{ food.id }}">
       <img src="{{ food.imageUrl }}" alt="food images" />
       <div class="content">
         <div class="name">
@@ -11,26 +11,21 @@
 
         <span class="favorite {{ food.favorite ? '' : 'not' }}">❤</span>
 
-        <mat-icon
-        *ngFor="let icon of manRatingArr"
-        >star</mat-icon>
-
-
-      <div class="product-item-footer">
-        <div class="origins">
-          <span *ngFor="let origin of food.origins">
-            {{ origin }}
-          </span>
+        <div class="product-item-footer">
+          <div class="origins">
+            <span *ngFor="let origin of food.origins">
+              {{ origin }}
+            </span>
+          </div>
+        </div>
+        <div class="cook-time">
+          <span> ⏱ </span>
+          {{ food.cookTime }}
+        </div>
+        <div class="price">
+          <span>{{ food.price | currency : "NPR" }}</span>
         </div>
       </div>
-      <div class="cook-time">
-        <span> ⏱ </span>
-        {{ food.cookTime }}
-      </div>
-      <div class="price">
-        <span>{{ food.price | currency : "NPR" }}</span>
-      </div>
-    </div>
     </a>
   </li>
 </ul>

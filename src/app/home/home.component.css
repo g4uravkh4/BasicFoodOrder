@@ -73,3 +73,7 @@ li a:hover{
 .price{
     color: gray;
 }
+
+.checked{
+    color: gold;
+}

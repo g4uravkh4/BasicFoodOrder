@@ -8,6 +8,11 @@ import { Tag } from 'src/app/shared/models/tag';
 export class FoodService {
 
   constructor() { }
+
+  getFoodById(id:number): Foods{
+    return this.getAll().find(food => food.id == id)!;
+  }
+
   getAllFoodByTag(tag:string) : Foods[]{
     if (tag== 'All')
     return this.getAll()
@@ -16,13 +21,11 @@ export class FoodService {
   }
 getAllTag(): Tag[]{
   return[
-    {name: 'All', count: 14 },
-    {name: 'Fast Food', count: 1 },
+    {name: 'All', count: 8 },
     {name: 'Italian', count: 1 },
     {name: 'Cheese', count: 1 },
     {name: 'American', count: 1 },
     {name: 'Beef', count: 1 },
-    {name: 'Seafood', count: 1 },
     {name: 'Raw', count: 1 },
   ]
 }
@@ -38,7 +41,7 @@ getAllTag(): Tag[]{
           imageUrl: "/assets/food-1.jpg",
           cookTime: "30 minutes",
           origins: ["Italy"],
-          tags: ["Italian", "Fast Food", "Cheese"],
+          tags: ["Cheese"],
         },
         {
           id: 2,
@@ -49,7 +52,7 @@ getAllTag(): Tag[]{
           imageUrl: "/assets/food-2.jpg",
           cookTime: "15 minutes",
           origins: ["United States"],
-          tags: ["American", "Fast Food", "Beef"],
+          tags: ["Beef"],
         },
         {
           id: 3,
@@ -60,7 +63,7 @@ getAllTag(): Tag[]{
           imageUrl: "/assets/food-3.jpg",
           cookTime: "45 minutes",
           origins: ["Japan"],
-          tags: ["Japanese", "Seafood", "Raw"],
+          tags: ["Raw"],
         },
         {
           id: 4,
@@ -71,7 +74,7 @@ getAllTag(): Tag[]{
           imageUrl: "/assets/food-4.jpg",
           cookTime: "20 minutes",
           origins: ["Italy"],
-          tags: ["Italian", "Pasta", "Tomato Sauce"],
+          tags: ["Italian"],
         },
         {
           id: 5,
@@ -82,7 +85,7 @@ getAllTag(): Tag[]{
           imageUrl: "/assets/food-5.jpg",
           cookTime: "25 minutes",
           origins: ["Mexico"],
-          tags: ["Mexican", "Street Food", "Tortilla"],
+          tags: ["Mexican"],
         },
         {
           id: 600,
@@ -93,7 +96,7 @@ getAllTag(): Tag[]{
           imageUrl: "/assets/food-6.jpg",
           cookTime: "35 minutes",
           origins: ["Argentina"],
-          tags: ["American", "Argentinian", "Beef"],
+          tags: ["American"],
         },
         {
           id: 7,
@@ -104,7 +107,7 @@ getAllTag(): Tag[]{
           imageUrl: "/assets/food-7.jpg",
           cookTime: "40 minutes",
           origins: ["India"],
-          tags: ["Indian", "Spicy", "Curry Powder"],
+          tags: ["Indian"],
         },
         {
           id: 8,
@@ -115,7 +118,7 @@ getAllTag(): Tag[]{
           imageUrl: "/assets/food-8.jpg",
           cookTime: "15 minutes",
           origins: ["Japan", "Hawaii"],
-          tags: ["Japanese", "Hawaiian", "Rice Bowl"],
+          tags: ["Japanese"],
         },
       ];
   }

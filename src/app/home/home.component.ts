@@ -10,14 +10,28 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   @Input() maxRating = 5;
-  manRatingArr: any = [];
+  @Input() SelectedStar = 0;
+  maxRatingArr: any = [];
   foods: Foods[] = [];
+  previousSelection = 0;
+
+  HandleMouseEnter(index: number) {
+    this.SelectedStar = index + 1;
+  }
+
+  HandleMouseLeave() {
+    if (this.previousSelection !== 0) {
+      this.SelectedStar = this.previousSelection;
+    } else {
+      this.SelectedStar = 0;
+    }
+  }
 
   constructor(private fs: FoodService, private router: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.maxRatingArr = Array(this.maxRating).fill(0);
 
-    this.manRatingArr = Array(this.maxRating).fill(0);
     this.router.params.subscribe((params) => {
       if (params['searchItem'])
         this.foods = this.fs

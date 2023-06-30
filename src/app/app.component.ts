@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { StarRatingComponent } from 'ng-starrating';
+import { Component, VERSION } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,7 @@ import { StarRatingComponent } from 'ng-starrating';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  name = 'Angular ' + VERSION.major;
   max = 5;
   rate = 2;
   isReadonly = false;
